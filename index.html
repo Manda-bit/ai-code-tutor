@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Code Chalkboard — Learn to Code</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="chalk-title">Code Chalkboard</h1>
+    <p class="tagline">Learn HTML, CSS and JavaScript by writing real code — right here, right now.</p>
+  </header>
+
+  <main>
+
+    <!-- LESSON CARD -->
+    <section class="lesson-card">
+      <span class="tape"></span>
+      <p class="lesson-label">Lesson 01 — Tags</p>
+      <h2>What is an HTML tag?</h2>
+      <p>
+        An HTML tag is an instruction wrapped in angle brackets, like <code>&lt;p&gt;</code>.
+        It tells the browser what a piece of content <em>is</em> — a paragraph, a heading,
+        a button — so the browser knows how to show it.
+      </p>
+      <p>
+        Most tags come in pairs: an opening tag <code>&lt;p&gt;</code> and a closing tag
+        <code>&lt;/p&gt;</code>, with your content sandwiched in between.
+      </p>
+
+      <!-- PLAYGROUND -->
+      <div class="playground">
+        <div class="playground-pane">
+          <div class="pane-header">
+            <span>your code</span>
+            <button id="resetBtn" class="eraser-btn" title="Reset to starting code">Reset</button>
+          </div>
+          <textarea id="codeInput" spellcheck="false"><h1>Hello, world!</h1>
+<p>This is a paragraph tag.</p>
+<button>I'm a button tag</button></textarea>
+        </div>
+        <div class="playground-pane">
+          <div class="pane-header"><span>live preview</span></div>
+          <iframe id="preview" title="Live code preview"></iframe>
+        </div>
+      </div>
+
+      <!-- CHALLENGE -->
+      <div class="challenge">
+        <p class="challenge-label">Try it yourself</p>
+        <ul>
+          <li>Change the text inside the <code>&lt;h1&gt;</code> tag.</li>
+          <li>Add a second <code>&lt;p&gt;</code> tag with your own sentence.</li>
+          <li>Try adding an <code>&lt;img&gt;</code> tag — what happens if it's wrong?</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- UPCOMING LESSONS -->
+    <section class="roadmap">
+      <h3>Up next</h3>
+      <ol class="lesson-list">
+        <li class="done">Lesson 01 — What is an HTML tag?</li>
+        <li class="locked">Lesson 02 — Structuring a page</li>
+        <li class="locked">Lesson 03 — Styling with CSS</li>
+        <li class="locked">Lesson 04 — Making things move with JavaScript</li>
+      </ol>
+      <button class="ai-btn" disabled title="Coming soon — needs an API key">
+        Get AI feedback on my code (coming soon)
+      </button>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Built one lesson at a time. <a href="https://github.com" target="_blank" rel="noopener">View on GitHub</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
