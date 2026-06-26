@@ -1,1 +1,271 @@
+/* ===== Tokens ===== */
+:root {
+  --bg: #1b2e28;
+  --bg-card: #223d35;
+  --bg-pane: #16261f;
+  --chalk: #f4f1e6;
+  --chalk-dim: #c9d6cd;
+  --accent-yellow: #e8c547;
+  --accent-coral: #e2725b;
+  --muted: #87a395;
+  --border-chalk: rgba(244, 241, 230, 0.35);
 
+  --font-display: 'Space Mono', 'Courier New', monospace;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--chalk);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* ===== Hero ===== */
+.hero {
+  text-align: center;
+  padding: 64px 24px 40px;
+}
+
+.chalk-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  letter-spacing: 0.03em;
+  margin: 0 0 12px;
+  text-shadow: 0 0 1px rgba(244, 241, 230, 0.6), 0 0 14px rgba(244, 241, 230, 0.15);
+  animation: chalk-in 0.6s ease-out;
+}
+
+@keyframes chalk-in {
+  from { opacity: 0; letter-spacing: 0.15em; }
+  to   { opacity: 1; letter-spacing: 0.03em; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chalk-title { animation: none; }
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== Lesson card ===== */
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 20px 80px;
+}
+
+.lesson-card {
+  position: relative;
+  background: var(--bg-card);
+  border: 2px dashed var(--border-chalk);
+  border-radius: 6px;
+  padding: 32px 28px;
+  margin-bottom: 40px;
+}
+
+.tape {
+  position: absolute;
+  top: -14px;
+  left: 36px;
+  width: 64px;
+  height: 22px;
+  background: var(--accent-yellow);
+  opacity: 0.85;
+  transform: rotate(-4deg);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.lesson-label {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-yellow);
+  border-bottom: 2px solid var(--accent-yellow);
+  display: inline-block;
+  padding-bottom: 2px;
+  margin: 8px 0 18px;
+}
+
+.lesson-card h2 {
+  margin: 0 0 16px;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+}
+
+.lesson-card p code,
+.challenge code {
+  background: var(--bg-pane);
+  color: var(--accent-yellow);
+  font-family: var(--font-display);
+  font-size: 0.85em;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* ===== Playground ===== */
+.playground {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+@media (max-width: 600px) {
+  .playground { grid-template-columns: 1fr; }
+}
+
+.playground-pane {
+  background: var(--bg-pane);
+  border: 1px solid var(--border-chalk);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.pane-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border-chalk);
+}
+
+#codeInput {
+  width: 100%;
+  height: 200px;
+  background: var(--bg-pane);
+  color: var(--chalk);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  border: none;
+  resize: vertical;
+  padding: 14px;
+  outline: none;
+}
+
+#preview {
+  width: 100%;
+  height: 200px;
+  border: none;
+  background: var(--chalk);
+}
+
+.eraser-btn {
+  background: transparent;
+  border: 1px solid var(--muted);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  padding: 3px 9px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.eraser-btn:hover {
+  border-color: var(--accent-yellow);
+  color: var(--accent-yellow);
+}
+
+/* ===== Challenge ===== */
+.challenge {
+  border-left: 3px solid var(--accent-coral);
+  padding-left: 16px;
+  margin-top: 24px;
+}
+
+.challenge-label {
+  font-family: var(--font-display);
+  color: var(--accent-coral);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 8px;
+}
+
+.challenge ul {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--chalk-dim);
+}
+
+.challenge li { margin-bottom: 6px; }
+
+/* ===== Roadmap ===== */
+.roadmap h3 {
+  font-family: var(--font-display);
+  color: var(--muted);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lesson-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+}
+
+.lesson-list li {
+  padding: 10px 0;
+  border-bottom: 1px dashed var(--border-chalk);
+  font-size: 0.95rem;
+}
+
+.lesson-list li.done {
+  color: var(--accent-yellow);
+}
+
+.lesson-list li.done::before {
+  content: "✓ ";
+}
+
+.lesson-list li.locked {
+  color: var(--muted);
+}
+
+.lesson-list li.locked::before {
+  content: "○ ";
+}
+
+.ai-btn {
+  width: 100%;
+  padding: 14px;
+  background: transparent;
+  border: 2px dashed var(--muted);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  border-radius: 6px;
+  cursor: not-allowed;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding: 24px 0 48px;
+}
+
+footer a {
+  color: var(--accent-yellow);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
